@@ -1,5 +1,11 @@
 # ssh-cli
 
+<p align="right">
+  <a href="README.md">English</a>
+  &nbsp;·&nbsp;
+  <a href="README.zh.md"><b>中文</b></a>
+</p>
+
 一个聚焦的 SSH 主机管理器，包装系统 `ssh`/`scp` 二进制。同时为交互式 shell
 使用和 AI 代理调用而设计（想想从脚本或 MCP 工具里跑
 `ssh-cli exec arch-prod -- pacman -Syu`）。
@@ -9,8 +15,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE-MIT)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE-APACHE)
-
-[English version](README.md)
 
 ## 为什么做这个
 
@@ -97,22 +101,19 @@ done
 把下面这段 prompt 复制给你的 AI 代理（Claude Code、Cursor、WorkBuddy、
 Cody、Aider 等）：
 
-> 在这台机器上从 <https://github.com/Ryden-kai/ssh-cli> 安装 `ssh-cli`。步骤：
->
-> 1. 跑 `cargo --version` 确认 Rust 工具链已装。如果没装，去 <https://rustup.rs/>
->    装（一行命令：`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`）。
-> 2. 跑下面这条装 ssh-cli：
->    `cargo install --git https://github.com/Ryden-kai/ssh-cli.git --tag v0.1.7`
->    （这条会克隆、build、把 `ssh-cli` 二进制装到 `~/.cargo/bin/`）
-> 3. 验证：跑 `ssh-cli --version`，应该打印 `ssh-cli 0.1.7`（或更新）。如果
->    `ssh-cli` 不在 `$PATH` 里，把 `~/.cargo/bin` 加进去（或拷到 `~/.local/bin/`）。
-> 4. 冒烟测试：跑 `ssh-cli doctor`，应该报告 ssh 和 scp 二进制都找到了。
-> 5. （可选）跑 `ssh-cli init` 在平台默认位置建空 config（Linux/macOS：
->    `~/.config/ssh-cli/config.toml`，Windows：`%APPDATA%\ssh-cli\config.toml`）。
->
-> **不要**加主机、改 config、或连任何真实 SSH 服务器 —— 只装 + 验证。报告
-> 最终 `ssh-cli --version` 输出、`doctor` 摘要、和任何报错。如果遇到 build
-> 失败（比如网慢、缺系统依赖），原样报错误，不要瞎猜 workaround。
+````text
+在这台机器上从 https://github.com/Ryden-kai/ssh-cli 安装 ssh-cli。
+步骤：
+1. 跑 cargo --version 确认 Rust 工具链已装。如果没装，去 https://rustup.rs/ 装（一行命令：curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh）。
+2. 跑下面这条装 ssh-cli：
+   cargo install --git https://github.com/Ryden-kai/ssh-cli.git --tag v0.1.7
+   （这条会克隆、build、把 ssh-cli 二进制装到 ~/.cargo/bin/）
+3. 验证：跑 ssh-cli --version，应该打印 ssh-cli 0.1.7（或更新）。如果 ssh-cli 不在 $PATH 里，把 ~/.cargo/bin 加进去（或拷到 ~/.local/bin/）。
+4. 冒烟测试：跑 ssh-cli doctor，应该报告 ssh 和 scp 二进制都找到了。
+5. （可选）跑 ssh-cli init 在平台默认位置建空 config（Linux/macOS：~/.config/ssh-cli/config.toml，Windows：%APPDATA%\ssh-cli\config.toml）。
+
+不要加主机、改 config、或连任何真实 SSH 服务器 —— 只装 + 验证。报告最终 ssh-cli --version 输出、doctor 摘要、和任何报错。如果遇到 build 失败（比如网慢、缺系统依赖），原样报错误，不要瞎猜 workaround。
+````
 
 代理装完后你可以直接加主机：
 

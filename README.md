@@ -1,5 +1,11 @@
 # ssh-cli
 
+<p align="right">
+  <a href="README.md"><b>English</b></a>
+  &nbsp;·&nbsp;
+  <a href="README.zh.md">中文</a>
+</p>
+
 A focused SSH host manager that wraps the system `ssh`/`scp` binaries. Designed
 for both interactive shell use and AI-agent invocation (think `ssh-cli exec
 arch-prod -- pacman -Syu` from a script or MCP tool).
@@ -100,30 +106,19 @@ See **[docs/AI-USAGE.md](docs/AI-USAGE.md)** for the full manual.
 Copy the prompt below and paste it to your AI agent (Claude Code,
 Cursor, WorkBuddy, Cody, Aider, etc.):
 
-> Install `ssh-cli` on this machine from
-> <https://github.com/Ryden-kai/ssh-cli>. Steps:
->
-> 1. Verify a Rust toolchain is installed by running `cargo --version`. If
->    missing, install via <https://rustup.rs/> (one-liner: `curl --proto
->    '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`).
-> 2. Install ssh-cli by running:
->    `cargo install --git https://github.com/Ryden-kai/ssh-cli.git --tag v0.1.7`
->    (this clones, builds, and installs the `ssh-cli` binary into
->    `~/.cargo/bin/`).
-> 3. Verify the install worked: run `ssh-cli --version`. It should print
->    `ssh-cli 0.1.7` (or newer). If `ssh-cli` isn't on `$PATH`, add
->    `~/.cargo/bin` to it (or copy the binary to `~/.local/bin/`).
-> 4. Smoke-test the environment: run `ssh-cli doctor`. It should report
->    both `ssh` and `scp` binaries found.
-> 5. (Optional) Run `ssh-cli init` to create an empty config file at the
->    platform-default location (`~/.config/ssh-cli/config.toml` on Linux/macOS,
->    `%APPDATA%\ssh-cli\config.toml` on Windows).
->
-> Do NOT add hosts, modify config, or test against any real SSH server —
-> just install + verify. Report the final `ssh-cli --version` output,
-> the `doctor` summary, and any errors you encountered. If you hit a build
-> failure (e.g. slow network, missing system deps), report the exact error
-> instead of guessing a workaround.
+````text
+Install ssh-cli on this machine from https://github.com/Ryden-kai/ssh-cli.
+Steps:
+1. Verify a Rust toolchain is installed by running `cargo --version`. If missing, install via https://rustup.rs/ (one-liner: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`).
+2. Install ssh-cli by running:
+   `cargo install --git https://github.com/Ryden-kai/ssh-cli.git --tag v0.1.7`
+   (this clones, builds, and installs the `ssh-cli` binary into ~/.cargo/bin/).
+3. Verify the install worked: run `ssh-cli --version`. It should print `ssh-cli 0.1.7` (or newer). If `ssh-cli` isn't on $PATH, add ~/.cargo/bin to it (or copy the binary to ~/.local/bin/).
+4. Smoke-test the environment: run `ssh-cli doctor`. It should report both `ssh` and `scp` binaries found.
+5. (Optional) Run `ssh-cli init` to create an empty config file at the platform-default location (~/.config/ssh-cli/config.toml on Linux/macOS, %APPDATA%\ssh-cli\config.toml on Windows).
+
+Do NOT add hosts, modify config, or test against any real SSH server — just install + verify. Report the final `ssh-cli --version` output, the `doctor` summary, and any errors you encountered. If you hit a build failure (e.g. slow network, missing system deps), report the exact error instead of guessing a workaround.
+````
 
 The agent should do the install and report back. After it's done, you can
 proceed to add hosts:
