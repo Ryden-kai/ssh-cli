@@ -1,0 +1,34 @@
+# Example ssh-cli configuration.
+#
+# Copy to:
+#   Linux/WSL/macOS:  ~/.config/ssh-cli/config.toml
+#   Windows:          %APPDATA%\ssh-cli\config.toml
+# Or run `ssh-cli init` to create an empty one.
+#
+# Override location for tests / CI:
+#   export SSH_CLI_CONFIG=/path/to/another.toml
+
+version = 1
+
+# Anything set here applies to every host that doesn't override it.
+[defaults]
+# user = "rayden"
+# port = 22
+# identity_file = "~/.ssh/id_ed25519"
+# extra_opts = ["-o", "ServerAliveInterval=60"]
+
+[hosts.arch-prod]
+host = "203.0.113.10"
+user = "rayden"
+port = 2222
+identity_file = "~/.ssh/arch_prod_ed25519"
+desc = "Production Arch Linux"
+tags = ["prod", "arch", "managed"]
+extra_opts = ["-o", "ForwardAgent=yes"]
+
+[hosts.arch-dev]
+host = "10.0.0.5"
+user = "rayden"
+port = 22
+desc = "Local dev box"
+tags = ["dev"]

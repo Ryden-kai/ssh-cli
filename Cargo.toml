@@ -1,0 +1,33 @@
+[package]
+name = "ssh-cli"
+version = "0.1.7"
+edition = "2021"
+rust-version = "1.75"
+description = "SSH host manager CLI that wraps the system ssh/scp binaries. Designed for both interactive use and AI agent invocation."
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["ssh", "cli", "devops", "agent"]
+categories = ["command-line-utilities", "development-tools"]
+
+[lib]
+name = "ssh_cli"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ssh-cli"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+serde_json = "1"
+directories = "5"
+thiserror = "1"
+anyhow = "1"
+comfy-table = "7"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
